@@ -89,16 +89,11 @@ function addTransaction(e) {
 
   const formData = new FormData(this);
 
-  const rawDate = formData.get("date");
-  const dateArray = rawDate.split('-'); // Assuming the date is in the format "YYYY-MM-DD"
-  const formattedDate = `${dateArray[0]}-${dateArray[1]}-${dateArray[2]}`; // Format as "YYYY-MM-DD"
-
   const newTransaction = {
-    id: transactions.length + 1,
-    name: formData.get("name") || "", // Use an empty string if name is not provided
-    amount: parseFloat(formData.get("amount")),
-    date: formattedDate, // Use the formatted date
     type: formData.get("type") === "on" ? "income" : "expense",
+    name: formData.get("name") || "",
+    amount: parseFloat(formData.get("amount")),
+    date: formData.get("date") || "",
   };
 
   transactions.push(newTransaction);
@@ -108,7 +103,19 @@ function addTransaction(e) {
   updateTotal();
   saveTransactions();
   renderList();
+
+  // Send the new transaction to the server
+  axios.post('/submit', newTransaction)
+    .then((response) => {
+      console.log(response.data); // Log the server response if needed
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
+
+
+
 
 function toggleTransactions() {
   showAllTransactions = !showAllTransactions;
