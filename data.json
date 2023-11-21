@@ -1,0 +1,40 @@
+{
+  "transactions": [
+    {
+      "type": "expense",
+      "name": "Part-time Job",
+      "amount": 5050,
+      "date": "2023-11-03"
+    },
+    {
+      "type": "expense",
+      "name": "Part-time Job",
+      "amount": 147,
+      "date": "2023-11-01"
+    },
+    {
+      "type": "expense",
+      "name": "ice cream",
+      "amount": -55,
+      "date": "2023-11-02"
+    },
+    {
+      "type": "expense",
+      "name": "Part-time Job",
+      "amount": 1470,
+      "date": "2023-11-01"
+    },
+    {
+      "type": "income",
+      "name": "Part-time Job",
+      "amount": 777,
+      "date": "2023-11-24"
+    },
+    {
+      "type": "expense",
+      "name": "ice cream",
+      "amount": -55,
+      "date": "2023-11-30"
+    }
+  ]
+}
